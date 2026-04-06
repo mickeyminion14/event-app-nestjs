@@ -1,0 +1,16 @@
+version: '3.9'
+
+services:
+  postgres:
+    image: postgres:15
+    container_name: event_app_postgres
+    restart: always
+    ports:
+      - '${POSTGRES_PORT}:5432'
+    env_file:
+      - .env
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
